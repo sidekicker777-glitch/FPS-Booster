@@ -11,7 +11,7 @@ Lightweight FPS booster resource for FiveM with ESX-friendly notifications and p
 1. Drop this folder into your server `resources` directory.
 2. Add to `server.cfg`:
    ```
-   ensure FPS Booster
+   ensure FPS-Booster
    
    ```
 3. (Optional) Adjust presets in `config.lua`.
