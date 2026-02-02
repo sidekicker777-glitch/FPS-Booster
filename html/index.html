@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FPS Booster</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app" class="hidden">
+      <div class="panel">
+        <div class="panel__header">
+          <h1>FPS Booster</h1>
+          <button class="close" data-action="close" aria-label="Close">×</button>
+        </div>
+        <p class="panel__subtitle">Choose a preset to adjust density and visuals.</p>
+        <div class="panel__controls">
+          <button id="toggle-advanced" class="control">Advanced</button>
+          <button id="toggle-preview" class="control">Preview</button>
+        </div>
+        <div id="modes" class="modes"></div>
+        <p class="panel__hint">Press <span id="keybind">F7</span> again to close.</p>
+      </div>
+    </div>
+    <div id="confirm" class="confirm hidden">
+      <div class="confirm__card">
+        <h2>Disable FPS Booster?</h2>
+        <p>This will restore default densities and visuals.</p>
+        <div class="confirm__actions">
+          <button class="confirm__button confirm__button--ghost" data-action="cancel">Cancel</button>
+          <button class="confirm__button" data-action="confirm">Disable</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

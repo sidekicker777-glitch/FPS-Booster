@@ -1,0 +1,260 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+  color: #f5f5f5;
+}
+
+#app.hidden {
+  display: none;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 10, 18, 0.65);
+  backdrop-filter: blur(6px);
+}
+
+.panel {
+  width: min(720px, 92vw);
+  background: #121726;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.panel__header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.panel__subtitle {
+  margin: 0 0 14px;
+  color: #b9c0d4;
+  font-size: 14px;
+}
+
+.panel__controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.control {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e9f5;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.control--active {
+  background: #4aa3ff;
+  color: #0b0f1a;
+  border-color: transparent;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  color: #b9c0d4;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.mode {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e5e9f5;
+  padding: 14px 12px;
+  border-radius: 12px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.mode__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mode__title {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 12px;
+  color: #f5f5f5;
+}
+
+.mode__badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  background: rgba(74, 163, 255, 0.2);
+  color: #9cd1ff;
+}
+
+.mode__desc {
+  font-size: 12px;
+  color: #b9c0d4;
+}
+
+.mode__stats {
+  display: grid;
+  gap: 4px;
+  font-size: 11px;
+  color: #9aa3b8;
+}
+
+.mode__flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #4aa3ff;
+}
+
+.mode__dot--off {
+  background: #586078;
+}
+
+.mode__advanced {
+  display: none;
+  font-size: 11px;
+  color: #9aa3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 8px;
+  gap: 4px;
+}
+
+.mode__advanced--open {
+  display: grid;
+}
+
+.mode__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mode__action {
+  flex: 1;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #4aa3ff;
+  color: #0b0f1a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mode__action--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e5e9f5;
+}
+
+.mode:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.mode.active {
+  border-color: #4aa3ff;
+  box-shadow: 0 0 0 1px rgba(74, 163, 255, 0.4);
+}
+
+.panel__hint {
+  margin: 18px 0 0;
+  font-size: 12px;
+  color: #8e97ad;
+  text-align: center;
+}
+
+.confirm {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 10, 18, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.confirm.hidden {
+  display: none;
+}
+
+.confirm__card {
+  width: min(320px, 80vw);
+  background: #121726;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.confirm__card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.confirm__card p {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #b9c0d4;
+}
+
+.confirm__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.confirm__button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #4aa3ff;
+  color: #0b0f1a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.confirm__button--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e5e9f5;
+}
