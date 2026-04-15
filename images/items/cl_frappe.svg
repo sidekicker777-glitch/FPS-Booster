@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+  <rect width='512' height='512' rx='32' fill='#8be9fd' />
+  <text x='256' y='208' text-anchor='middle' font-family='Arial, sans-serif' font-size='54' fill='#111'>FPS</text>
+  <text x='256' y='274' text-anchor='middle' font-family='Arial, sans-serif' font-size='54' fill='#111'>FOOD</text>
+  <text x='256' y='356' text-anchor='middle' font-family='Arial, sans-serif' font-size='36' fill='#111'>CL_FRAPPE</text>
+</svg>
