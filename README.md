@@ -1,27 +1,53 @@
-# ESX FPS Booster
+# QBCore + QS-Inventory Food Consumables
 
-Lightweight FPS booster resource for FiveM with ESX-friendly notifications and presets.
+This is now configured specifically for **QBCore + qs-inventory**.
+When you use any configured food/drink item, your character will play the correct eat/drink animation with a hand prop.
 
-## Features
-- Preset modes: `off`, `low`, `medium`, `high`
-- Optional ESX notifications (falls back to chat)
-- Tunable density and graphics controls
+## Included item names (ready for your server)
+`burger`, `hotdog`, `donut`, `chocolate`, `sandwich`, `water`, `soda`, `coffee`, `kawaii_sushi`, `cl_frappe`, `cl_boba`, `cl_cupcake`, `cl_donut`, `cl_icecream`, `cl_milkshake`, `cl_pizza`
 
-## Installation
-1. Drop this folder into your server `resources` directory.
+## What was changed for QBCore + QS
+- `Config.Framework` default is now `qb`.
+- `Config.Inventory` default is now `qs`.
+- Usable items are registered with `QBCore.Functions.CreateUseableItem` for every entry in `Config.Items`.
+- `inventory:client:ItemBox` is no longer forced (disabled by default for QS compatibility).
+- Added optional event hook: `fpsbooster:server:consumeFromQS`.
+
+## Install
+1. Put resource in `resources/[local]/FPS-Booster`
 2. Add to `server.cfg`:
-   ```
+   ```cfg
    ensure FPS-Booster
-   
    ```
-3. (Optional) Adjust presets in `config.lua`.
+3. Add all item definitions from `integration/items_qb.lua` into `qb-core/shared/items.lua`.
+4. Restart `qb-core` and this resource.
 
-## Usage
-Use the in-game command:
-```
-/fpsboost [off|low|medium|high]
+## QS inventory note
+Most QBCore + QS setups work directly via `CreateUseableItem` once items are in `qb-core/shared/items.lua`.
+If your QS build uses a custom use-item trigger, call:
+
+```lua
+TriggerServerEvent('fpsbooster:server:consumeFromQS', itemName)
 ```
 
-## Notes
-- Some settings apply every frame for consistency.
-- To change default mode or notifications, edit `config.lua`.
+## Free prop packs referenced
+- https://forum.cfx.re/t/free-props-kawaii-food-prop-pack/5054189
+- https://github.com/NevoSwissa/CL-PropsPacks
+
+## Optional test commands
+- `/consumables`
+- `/consume [item]`
+
+
+## Prop image status (real sources)
+- I removed the generated placeholder icons so there is no fake art in this repo.
+- Real source previews are documented in `PROP_SOURCES.md`.
+- For QBCore/qs-inventory, add real PNG files into your inventory image folder using the names from `integration/items_qb.lua`.
+
+### Important
+No official per-item icon pack was found for every custom `cl_*` / `bostra_*` prop model.
+Use source preview images or in-game screenshots for exact icons.
+
+
+## Icon checklist
+Use `ICON_CHECKLIST.md` for an item-by-item icon completion checklist for QBCore/qs-inventory.
